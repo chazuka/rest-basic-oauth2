@@ -1,0 +1,161 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rest &amp; Basic OAuth2 Slide</title>
+
+    <meta name="description" content="Rest &amp; Basic OAuth2 Slide">
+    <meta name="author" content="Komang Arthayasa">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/beige.css" id="theme">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Raleway" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section id="slide-welcome"
+                 data-background-color="#f5f5f5"
+                 data-background="assets/images/mmdc.png"
+                 data-background-size="cover"
+                 data-background-position="top">
+            <h3>REST &amp; Basic OAuth2</h3>
+            <h4>Pembuatan &amp; Pengelolaan API Produk BRI</h4>
+        </section>
+
+        <!-- goal -->
+        <section id="slide-rest"
+                 data-background-color="#f5f5f5"
+                 data-background="assets/images/mmdc.png"
+                 data-background-size="cover"
+                 data-background-position="top">
+            <section>
+                <h2><strong>REST</strong> Web Service</strong></h2>
+            </section>
+            <section>
+                <h2>Constraints</h2>
+                <ol>
+                    <li class="fragment">Client Server</li>
+                    <li class="fragment">Stateless</li>
+                    <li class="fragment">Cacheable</li>
+                    <li class="fragment">Layered System</li>
+                    <li class="fragment">Uniform Interface</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Alternatives</h2>
+                <ol>
+                    <li class="fragment"><strong>Asynchronous APIs</strong><span class="fragment">: WebSockets,</span> <span class="fragment">MQTT,</span> <span  class="fragment">AMQP,</span> <span  class="fragment">Stomp,</span> <span  class="fragment">pubsubhubbub</span></li>
+                    <li class="fragment"><strong>Orchestration APIs</strong></li>
+                    <li class="fragment"><strong>SDKs</strong> vs. <strong>APIs</strong></li>
+                    <li class="fragment"><strong>Binary protocols</strong><span  class="fragment">: Apache Thrift,</span> <span  class="fragment">Google Protocol Buffers</span>, <span  class="fragment">Apache Avro.</span></li>
+                </ol>
+            </section>
+            <section>
+                <h3>With those available alternatives, why REST?</h3>
+            </section>
+            <section>
+                <h2>Advantages</h2>
+                <ol>
+                    <li class="fragment">Simplicity</li>
+                    <li class="fragment">Independency</li>
+                    <li class="fragment">Scalability</li>
+                    <li class="fragment">Encapsulation</li>
+                </ol>
+            </section>
+            <section>
+                <h2>HTTP Verbs</h2>
+                <ol>
+                    <li class="fragment"><strong>GET</strong> read a resource or collection</li>
+                    <li class="fragment"><strong>POST</strong> create a new resource</li>
+                    <li class="fragment"><strong>PUT</strong> update a resource</li>
+                    <li class="fragment"><strong>PATCH</strong> partially update a resource</li>
+                    <li class="fragment"><strong>DELETE</strong> delete a resource or collection</li>
+                    <li class="fragment"><strong>HEAD</strong> read meta-data</li>
+                    <li class="fragment"><strong>OPTIONS</strong> retrieve available actions to a resource or collection</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Gotchas</h2>
+                <ol>
+                    <li class="fragment">Versioning</li>
+                    <li class="fragment">HTTP status codes</li>
+                    <li class="fragment">Standarization Format URIs &amp; Payload: pagination, relations, error, etc.</li>
+                    <li class="fragment">PUT vs. PATCH vs. POST</li>
+                    <li class="fragment">Allow Override Method? <code><pre>X-HTTP-Method-Override</pre></code></li>
+                    <li class="fragment">Caching: ETag vs. Last-Modified</li>
+                    <li class="fragment">HATEOAS?</li>
+                    <li class="fragment">Contract/Mock &amp; Documentation</li>
+                </ol>
+            </section>
+            <section>
+                <h3>Let's show some examples!</h3>
+            </section>
+        </section>
+
+
+        <section id="slide-security"
+                 data-background-color="#f5f5f5"
+                 data-background="assets/images/mmdc.png"
+                 data-background-size="cover"
+                 data-background-position="top">
+            <section>
+                <h3>Securing REST</h3>
+                <ol>
+                    <li class="fragment">TLS/SSL <strong>*</strong></li>
+                    <li class="fragment">Rate limiting <strong>*</strong></li>
+                    <li class="fragment">JWT</li>
+                    <li class="fragment">OAuth1.0a</li>
+                    <li class="fragment">OAuth2</li>
+                    <li class="fragment">Custom Protocols</li>
+                </ol>
+            </section>
+            <section>
+                <h3>OAuth2</h3>
+            </section>
+            <section>
+                <h3>Oauth2 Protocol Flow</h3><pre><code>     +--------+                               +---------------+
+     |        |--(A)- Authorization Request -&gt;|   Resource    |
+     |        |                               |     Owner     |
+     |        |&lt;-(B)-- Authorization Grant ---|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(C)-- Authorization Grant --&gt;| Authorization |
+     | Client |                               |     Server    |
+     |        |&lt;-(D)----- Access Token -------|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(E)----- Access Token ------&gt;|    Resource   |
+     |        |                               |     Server    |
+     |        |&lt;-(F)--- Protected Resource ---|               |
+     +--------+                               +---------------+
+</code></pre>    
+            </section>
+            <section>
+                <h3>Let's show some examples</h3>
+            </section>
+        </section>
+
+        <section id="slide-thanks"
+                 data-background-color="#f5f5f5"
+                 data-background="assets/images/thanks.png"
+                 data-background-size="cover"
+                 data-background-position="top">
+            <section>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.min.js"></script>
+<script>
+    Reveal.initialize({});
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
