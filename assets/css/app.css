@@ -26,3 +26,8 @@ section .blocking {
 	padding:0.2em;
 	color: white;
 }
+
+.reveal pre {
+	margin: 0 auto;
+	box-shadow: none;
+}

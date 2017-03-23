@@ -25,7 +25,8 @@
                  data-background-position="top">
             <h3>REST &amp; Basic OAuth2</h3>
             <h4>Pembuatan &amp; Pengelolaan API Produk BRI</h4>
-            <p><small>Komang Arthayasa ~ CTO MatahariMall</small></p>
+            <p><small>Komang Arthayasa ~ CTO <a href="https://www.mataharimall.com">MatahariMall</a></small></p>
+            <p><small><a href="https://twitter.com/komang">@komang</a> - <a href="https://www.chazzuka.com/">chazzuka.com</a></small></p>
         </section>
 
         <!-- goal -->
@@ -34,6 +35,16 @@
                  data-background="assets/images/mmdc.png"
                  data-background-size="cover"
                  data-background-position="top">
+            <section>
+                <h3><strong>API</strong>: Web as Application Platform</h3>
+                <p><span class="fragment">Publishing Platform</span> <span class="fragment">-> Application Platform</span></p>
+                <ul>
+                    <li class="fragment">Loose Coupling</li>
+                    <li class="fragment">Presentation Agnostic</li>
+                    <li class="fragment">Distributed</li>
+                    <li class="fragment">Scalability &amp; Performance</li>
+                </ul>
+            </section>
             <section>
                 <h2><strong>REST</strong> Web Service</strong></h2>
             </section>
@@ -44,7 +55,7 @@
                     <li class="fragment">Stateless</li>
                     <li class="fragment">Cacheable</li>
                     <li class="fragment">Layered System</li>
-                    <li class="fragment">Uniform Interface</li>
+                    <li class="fragment">Consistent &amp; Uniform Interface</li>
                 </ol>
             </section>
             <section>
@@ -57,9 +68,6 @@
                 </ol>
             </section>
             <section>
-                <h3>With those available alternatives, why REST?</h3>
-            </section>
-            <section>
                 <h2>Advantages</h2>
                 <ol>
                     <li class="fragment">Simplicity</li>
@@ -69,15 +77,38 @@
                 </ol>
             </section>
             <section>
-                <h2>HTTP Verbs</h2>
+                <h3>HTTP Verbs</h3>
                 <ol>
-                    <li class="fragment"><strong>GET</strong> read a resource or collection</li>
-                    <li class="fragment"><strong>POST</strong> create a new resource</li>
-                    <li class="fragment"><strong>PUT</strong> update a resource</li>
-                    <li class="fragment"><strong>PATCH</strong> partially update a resource</li>
-                    <li class="fragment"><strong>DELETE</strong> delete a resource or collection</li>
-                    <li class="fragment"><strong>HEAD</strong> read meta-data</li>
-                    <li class="fragment"><strong>OPTIONS</strong> retrieve available actions to a resource or collection</li>
+                    <li class="fragment"><strong>POST</strong>: create a new resource</li>
+                    <li class="fragment"><strong>PUT</strong>: update/replace a resource</li>
+                    <li class="fragment"><strong>PATCH</strong>: partially update a resource</li>
+                    <li class="fragment"><strong>DELETE</strong>: delete a resource or collection</li>
+                    <li class="fragment"><strong>HEAD</strong>: read meta-data</li>
+                    <li class="fragment"><strong>OPTIONS</strong>: retrieve available actions to a resource or collection</li>
+                </ol>
+            </section>
+            <section>
+                <h2>HTTP Status</h2>
+            </section>
+            <section>
+                <h3>Success Responses:</h3>
+                <ol>
+                    <li class="fragment"><strong>200</strong>: OK!</li>
+                    <li class="fragment"><strong>201</strong>: Resource Created</li>
+                    <li class="fragment"><strong>204</strong>: No Content</li>
+                    <li class="fragment"><strong>410</strong>: Gone</li>
+                    <li class="fragment"><strong>...</strong></li>
+                </ol>
+            </section>
+            <section>
+                <h3>Error Responses:</h3>
+                <ol>
+                    <li class="fragment"><strong>400</strong>: Bad Request</li>
+                    <li class="fragment"><strong>401</strong>: Not Authorized</li>
+                    <li class="fragment"><strong>403</strong>: Forbidden</li>
+                    <li class="fragment"><strong>404</strong>: Resource Not Found</li>
+                    <li class="fragment"><strong>422</strong>: Unprocessable Entity</li>
+                    <li class="fragment"><strong>500</strong>: Internal Server Error</li>
                 </ol>
             </section>
             <section>
@@ -87,7 +118,7 @@
                     <li class="fragment">HTTP status codes</li>
                     <li class="fragment">Standarization Format URIs &amp; Payload: pagination, relations, error, etc.</li>
                     <li class="fragment">PUT vs. PATCH vs. POST</li>
-                    <li class="fragment">Allow Override Method? <code><pre>X-HTTP-Method-Override</pre></code></li>
+                    <li class="fragment">Allow Override Method?</li>
                     <li class="fragment">Caching: ETag vs. Last-Modified</li>
                     <li class="fragment">HATEOAS?</li>
                     <li class="fragment">Contract/Mock &amp; Documentation</li>
@@ -129,7 +160,6 @@
                     <li class="fragment">Resource server</li>
                     <li class="fragment">Resource owner</li>
                     <li class="fragment">Scope</li>
-                    <li class="fragment">JWT</li>
                 </ul>
             </section>
             <section>
